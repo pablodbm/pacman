@@ -4,20 +4,20 @@ import {Directions, Element} from './Element';
 import { Ghost, GhostColor } from './Ghost';
 import {Pacman} from './Pacman';
 import {mapWalls as mapWallsRoot} from "./constants";
-//208X200    
-//239x200   
-//207
+
 const customMapWalls = Array.from(mapWallsRoot)
 window.onload = async () => {
     let pacmanMoved = false
     const board = new Board();
     await board.createBoard();
-    const player = new Pacman(8, 8, board.ctx);
+    await board.createPoints();
+    const player = new Pacman(8, 8, board.ctx,board.pointsCtx);
     await player.addBg();
     player.addToBoard();
     requestAnimationFrame(() => player.animatePacMan());
     player.go();
 
+    // const ghosts = [new Ghost(210,205,board.ctx,GhostColor.PINK)];
     const ghosts = [new Ghost(210,205,board.ctx,GhostColor.PINK),new Ghost(210,215,board.ctx,GhostColor.PINK),new Ghost(210,225,board.ctx,GhostColor.PINK)];
     for(const ghost of ghosts){
         await ghost.addBg()
@@ -43,6 +43,7 @@ window.onload = async () => {
     window.addEventListener('keydown', (e) => {
         switch (e.key) {
             case 'ArrowUp': {
+
                 if (!player.hasColision(player.x, player.y - 1,Directions.UP)) {
                     player.prevDirection = player.direction
                     player.direction = Directions.UP;
@@ -55,6 +56,7 @@ window.onload = async () => {
                 break;
             }
             case 'ArrowRight': {
+
                 if (!player.hasColision(player.x + 1, player.y,Directions.RIGHT)) {
                     player.prevDirection = player.direction
                     player.direction = Directions.RIGHT;
@@ -66,6 +68,7 @@ window.onload = async () => {
                 break;
             }
             case 'ArrowDown': {
+
                 if (!player.hasColision(player.x, player.y + 1,Directions.DOWN)) {
                     player.prevDirection = player.direction
                     player.direction = Directions.DOWN;
@@ -77,6 +80,7 @@ window.onload = async () => {
                 break;
             }
             case 'ArrowLeft': {
+
                 if (!player.hasColision(player.x - 1, player.y,Directions.LEFT)) {
                     player.prevDirection = player.direction
                     player.direction = Directions.LEFT;

@@ -92,6 +92,6 @@ export class Ghost extends Element {
             
             
             
-        }, 20);
+        }, 30);
     };
 }

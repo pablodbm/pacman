@@ -1,0 +1,19 @@
+
+
+canvas {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 20%;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+h3{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+}
