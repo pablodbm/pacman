@@ -1,5 +1,8 @@
 
-
+@font-face {
+    font-family: "commodore";
+    src: url("./commodore.TTF");
+  }
 canvas {
     position: absolute;
     left: 50%;
@@ -10,7 +13,7 @@ canvas {
 body {
     background-color: black;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'commodore';
 }
 h3{
     position: absolute;
