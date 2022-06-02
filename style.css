@@ -8,6 +8,7 @@ canvas {
     left: 50%;
     transform: translate(-50%, 0);
     top: 20%;
+    /* transform: scale(1.5); */
 }
 
 body {
@@ -15,7 +16,10 @@ body {
     color: white;
     font-family:'commodore';
 }
-h3{
+.title{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
     position: absolute;
     top: 10%;
     left: 30%;

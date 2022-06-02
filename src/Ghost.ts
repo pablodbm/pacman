@@ -23,11 +23,20 @@ export class Ghost extends Element {
     color:GhostColor
     goInterval: NodeJS.Timer | undefined;
     prevDirection: Directions | undefined;
+    moveEvent:Event;
+    vulnerable:boolean
+    speed:number;
+
     constructor(x: number, y: number, ctx: CanvasRenderingContext2D,color:GhostColor) {
-        super(x, y, ctx, ghostImage, 28, 28);
+        super(x, y, ctx, ghostImage, 30, 30);
         this.color = color;
+        this.speed = 30
+        this.vulnerable = true
+        this.moveEvent = new Event("elementMoved")
     }
     addBg = () => {
+        
+        this.image = new Image();
         this.image.src = ghostAssets[this.color]
         if (this.image.complete) {
             console.log('zaladowano');
@@ -38,10 +47,8 @@ export class Ghost extends Element {
             this.image.onload = () => resolve('loaded');
         });
     };
-    go = () => {
-        const thisRef = this;
-        this.goInterval = setInterval(() => {
-            let canMove = false
+    handleGo = ()=>{
+        let canMove = false
             if(this.x==8 && this.y>=216 && this.y<=222){
                 this.removeFromBoard()
                 this.x=416
@@ -60,38 +67,44 @@ export class Ghost extends Element {
 
             if(!canMove){
                 canMove =
-                thisRef.direction == Directions.UP
-                    ? thisRef.move(0, -1,Directions.UP)
-                    : thisRef.direction == Directions.LEFT
-                    ? thisRef.move(-1, 0,Directions.LEFT)
-                    : thisRef.direction == Directions.RIGHT
-                    ? thisRef.move(1, 0,Directions.RIGHT)
-                    : thisRef.direction == Directions.DOWN
-                    ? thisRef.move(0, 1,Directions.DOWN)
+                this.direction == Directions.UP
+                    ? this.move(0, -1,Directions.UP)
+                    : this.direction == Directions.LEFT
+                    ? this.move(-1, 0,Directions.LEFT)
+                    : this.direction == Directions.RIGHT
+                    ? this.move(1, 0,Directions.RIGHT)
+                    : this.direction == Directions.DOWN
+                    ? this.move(0, 1,Directions.DOWN)
                     : false;
             }
-            thisRef.prevDirection = thisRef.direction
+            this.prevDirection = this.direction
             
             while(!canMove){
                 
-               thisRef.direction = possibleDirections[Math.floor(Math.random()*4)];
-               if((thisRef.prevDirection == Directions.UP && thisRef.direction!=Directions.DOWN) || (thisRef.prevDirection==Directions.DOWN && thisRef.direction!=Directions.UP) || (thisRef.prevDirection == Directions.LEFT && thisRef.direction != Directions.RIGHT) || (thisRef.prevDirection == Directions.RIGHT && thisRef.direction != Directions.LEFT)  ){
+               this.direction = possibleDirections[Math.floor(Math.random()*4)];
+               if((this.prevDirection == Directions.UP && this.direction!=Directions.DOWN) || (this.prevDirection==Directions.DOWN && this.direction!=Directions.UP) || (this.prevDirection == Directions.LEFT && this.direction != Directions.RIGHT) || (this.prevDirection == Directions.RIGHT && this.direction != Directions.LEFT)  ){
                
                canMove =
-               thisRef.direction == Directions.UP
-                    ? thisRef.move(0, -1,Directions.UP)
-                    : thisRef.direction == Directions.LEFT
-                    ? thisRef.move(-1, 0,Directions.LEFT)
-                    : thisRef.direction == Directions.RIGHT
-                    ? thisRef.move(1, 0,Directions.RIGHT)
-                    : thisRef.direction == Directions.DOWN
-                    ? thisRef.move(0, 1,Directions.DOWN)
+               this.direction == Directions.UP
+                    ? this.move(0, -1,Directions.UP)
+                    : this.direction == Directions.LEFT
+                    ? this.move(-1, 0,Directions.LEFT)
+                    : this.direction == Directions.RIGHT
+                    ? this.move(1, 0,Directions.RIGHT)
+                    : this.direction == Directions.DOWN
+                    ? this.move(0, 1,Directions.DOWN)
                     : false;
                }
             }
             
+            if(canMove){
+                dispatchEvent(this.moveEvent)
+            }
+
             
-            
-        }, 30);
+    }
+    go = () => {
+        const thisRef = this;
+        this.goInterval = setInterval(this.handleGo, this.speed);
     };
 }

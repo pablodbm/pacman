@@ -7,31 +7,192 @@ const map = [
     [1, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
-const points = [
+export const  points = [
     // [24,24],
-    [24,48],[24,72],[24,96],[24,116],[24,136],
-    // [48,24],[72,24],[96,24],[120,24],[144,24],[168,24],[192,24],[64,88],[100,48],[100,88],[64,140],[100,140],[140,88],[164,88],
-    // [188,88],[212,88],[236,88],[260,88],[284,88],[308,88],[332,88],[356,88],[380,88],[404,88],[424,88],[100,164],[100,188],[100,212],[100,236],
-    // [100,260],[100,284],[100,308],[100,332],[100,356],[100,380],[100,404],[100,424],[72,328],[48,328],[24,328],[24,352],[24,376],[56,376],[56,400],
-    // [56,424],[80,424],[24,424],[24,448],[24,472],[48,472],[72,472],[96,472],[120,472],[144,472],[168,472],[192,472],[216,472],[240,472],[264,472],
-    // [288,472],[312,472],[336,472],[360,472],[384,472],[408,472],[428,472],[428,448],[428,424],[408,424],[384,424],[360,424],[396,396],
-    // [396,372],[424,372],[424,332],[344,112],[344,136],[344,160],[344,184],[344,208],[344,232],[344,256],[344,280],[344,304],[344,328],
-    // [344,352],[344,376],[320,376],[296,376],[272,376],[248,376],[224,376],[200,376],[176,376],[152,376],[128,376],[152,400],[152,424],[176,424],
-    // [200,424],[200,448],[248,448],[248,424],[272,424],[296,424],[296,400],[342,400],[342,424],[396,332],[372,332],[318,332],[296,332],[270,332],
-    // [246,332],[246,356],[200,350],[200,328],[176,328],[152,328],[128,328],[152,304],[152,280],[152,256],[152,232],[152,208],[152,184],[176,184],
-    // [200,184],[224,184],[248,184],[272,184],[296,184],[296,208],[296,232],[296,256],[296,280],[296,304],[272,280],[248,280],[224,280],[200,280],
-    // [176,280],[200,56],[248,56],[248,24],[272,24],[296,24],[320,24],[348,24],[372,24],[348,56],[396,24],[424,24],[424,56],[424,112],[424,136],
-    // [400,136],[376,136],[296,110],[296,134],[272,134],[248,134],[248,156],[150,110],[150,134],[174,134],[198,134],[198,158],[128,230],[320,230]
-]
+    {coords: [24, 48], type: 'point'},
+    {coords: [24, 72], type: 'point'},
+    {coords: [24, 96], type: 'point'},
+    {coords: [24, 116], type: 'point'},
+    {coords: [24, 136], type: 'point'},
+    {coords: [48, 24], type: 'point'},
+    {coords: [72, 24], type: 'point'},
+    {coords: [96, 24], type: 'point'},
+    {coords: [120, 24], type: 'point'},
+    {coords: [144, 24], type: 'point'},
+    {coords: [168, 24], type: 'point'},
+    {coords: [192, 24], type: 'point'},
+    {coords: [64, 88], type: 'point'},
+    {coords: [100, 48], type: 'point'},
+    {coords: [100, 88], type: 'point'},
+    {coords: [64, 140], type: 'point'},
+    {coords: [100, 140], type: 'point'},
+    {coords: [140, 88], type: 'point'},
+    {coords: [164, 88], type: 'point'},
+    {coords: [188, 88], type: 'point'},
+    {coords: [212, 88], type: 'point'},
+    {coords: [236, 88], type: 'point'},
+    {coords: [260, 88], type: 'point'},
+    {coords: [284, 88], type: 'point'},
+    {coords: [308, 88], type: 'point'},
+    {coords: [332, 88], type: 'point'},
+    {coords: [356, 88], type: 'point'},
+    {coords: [380, 88], type: 'point'},
+    {coords: [404, 88], type: 'point'},
+    {coords: [424, 88], type: 'point'},
+    {coords: [100, 164], type: 'point'},
+    {coords: [100, 188], type: 'point'},
+    {coords: [100, 212], type: 'point'},
+    {coords: [100, 236], type: 'point'},
+    {coords: [100, 260], type: 'point'},
+    {coords: [100, 284], type: 'point'},
+    {coords: [100, 308], type: 'point'},
+    {coords: [100, 332], type: 'point'},
+    {coords: [100, 356], type: 'point'},
+    {coords: [100, 380], type: 'point'},
+    {coords: [100, 404], type: 'point'},
+    {coords: [100, 424], type: 'point'},
+    {coords: [72, 328], type: 'point'},
+    {coords: [48, 328], type: 'point'},
+    {coords: [24, 328], type: 'point'},
+    {coords: [24, 352], type: 'point'},
+    {coords: [24, 376], type: 'point'},
+    {coords: [56, 376], type: 'point'},
+    {coords: [56, 400], type: 'point'},
+    {coords: [56, 424], type: 'point'},
+    {coords: [80, 424], type: 'point'},
+    {coords: [24, 424], type: 'point'},
+    {coords: [24, 448], type: 'point'},
+    {coords: [24, 472], type: 'point'},
+    {coords: [48, 472], type: 'point'},
+    {coords: [72, 472], type: 'point'},
+    {coords: [96, 472], type: 'point'},
+    {coords: [120, 472], type: 'point'},
+    {coords: [144, 472], type: 'bigPoint'},
+    {coords: [168, 472], type: 'point'},
+    {coords: [192, 472], type: 'point'},
+    {coords: [216, 472], type: 'point'},
+    {coords: [240, 472], type: 'point'},
+    {coords: [264, 472], type: 'point'},
+    {coords: [288, 472], type: 'point'},
+    {coords: [312, 472], type: 'point'},
+    {coords: [336, 472], type: 'point'},
+    {coords: [360, 472], type: 'point'},
+    {coords: [384, 472], type: 'point'},
+    {coords: [408, 472], type: 'point'},
+    {coords: [428, 472], type: 'point'},
+    {coords: [428, 448], type: 'point'},
+    {coords: [428, 424], type: 'point'},
+    {coords: [408, 424], type: 'point'},
+    {coords: [384, 424], type: 'point'},
+    {coords: [360, 424], type: 'bigPoint'},
+    {coords: [396, 396], type: 'point'},
+    {coords: [396, 372], type: 'point'},
+    {coords: [424, 372], type: 'point'},
+    {coords: [424, 332], type: 'point'},
+    {coords: [344, 112], type: 'point'},
+    {coords: [344, 136], type: 'point'},
+    {coords: [344, 160], type: 'point'},
+    {coords: [344, 184], type: 'point'},
+    {coords: [344, 208], type: 'point'},
+    {coords: [344, 232], type: 'point'},
+    {coords: [344, 256], type: 'point'},
+    {coords: [344, 280], type: 'point'},
+    {coords: [344, 304], type: 'point'},
+    {coords: [344, 328], type: 'point'},
+    {coords: [344, 352], type: 'point'},
+    {coords: [344, 376], type: 'point'},
+    {coords: [320, 376], type: 'point'},
+    {coords: [296, 376], type: 'bigPoint'},
+    {coords: [272, 376], type: 'point'},
+    {coords: [248, 376], type: 'point'},
+    {coords: [224, 376], type: 'point'},
+    {coords: [200, 376], type: 'point'},
+    {coords: [176, 376], type: 'point'},
+    {coords: [152, 376], type: 'point'},
+    {coords: [128, 376], type: 'point'},
+    {coords: [152, 400], type: 'point'},
+    {coords: [152, 424], type: 'point'},
+    {coords: [176, 424], type: 'point'},
+    {coords: [200, 424], type: 'point'},
+    {coords: [200, 448], type: 'point'},
+    {coords: [248, 448], type: 'point'},
+    {coords: [248, 424], type: 'point'},
+    {coords: [272, 424], type: 'point'},
+    {coords: [296, 424], type: 'point'},
+    {coords: [296, 400], type: 'point'},
+    {coords: [342, 400], type: 'point'},
+    {coords: [342, 424], type: 'point'},
+    {coords: [396, 332], type: 'point'},
+    {coords: [372, 332], type: 'point'},
+    {coords: [318, 332], type: 'point'},
+    {coords: [296, 332], type: 'point'},
+    {coords: [270, 332], type: 'point'},
+    {coords: [246, 332], type: 'point'},
+    {coords: [246, 356], type: 'point'},
+    {coords: [200, 350], type: 'bigPoint'},
+    {coords: [200, 328], type: 'point'},
+    {coords: [176, 328], type: 'point'},
+    {coords: [152, 328], type: 'point'},
+    {coords: [128, 328], type: 'point'},
+    {coords: [152, 304], type: 'point'},
+    {coords: [152, 280], type: 'point'},
+    {coords: [152, 256], type: 'point'},
+    {coords: [152, 232], type: 'point'},
+    {coords: [152, 208], type: 'point'},
+    {coords: [152, 184], type: 'point'},
+    {coords: [176, 184], type: 'point'},
+    {coords: [200, 184], type: 'point'},
+    {coords: [224, 184], type: 'bigPoint'},
+    {coords: [248, 184], type: 'point'},
+    {coords: [272, 184], type: 'point'},
+    {coords: [296, 184], type: 'point'},
+    {coords: [296, 208], type: 'point'},
+    {coords: [296, 232], type: 'point'},
+    {coords: [296, 256], type: 'point'},
+    {coords: [296, 280], type: 'point'},
+    {coords: [296, 304], type: 'point'},
+    {coords: [272, 280], type: 'point'},
+    {coords: [248, 280], type: 'point'},
+    {coords: [224, 280], type: 'point'},
+    {coords: [200, 280], type: 'point'},
+    {coords: [176, 280], type: 'point'},
+    {coords: [200, 56], type: 'point'},
+    {coords: [248, 56], type: 'point'},
+    {coords: [248, 24], type: 'bigPoint'},
+    {coords: [272, 24], type: 'point'},
+    {coords: [296, 24], type: 'point'},
+    {coords: [320, 24], type: 'point'},
+    {coords: [348, 24], type: 'point'},
+    {coords: [372, 24], type: 'point'},
+    {coords: [348, 56], type: 'point'},
+    {coords: [396, 24], type: 'point'},
+    {coords: [424, 24], type: 'point'},
+    {coords: [424, 56], type: 'point'},
+    {coords: [424, 112], type: 'point'},
+    {coords: [424, 136], type: 'point'},
+    {coords: [400, 136], type: 'point'},
+    {coords: [376, 136], type: 'point'},
+    {coords: [296, 110], type: 'point'},
+    {coords: [296, 134], type: 'point'},
+    {coords: [272, 134], type: 'point'},
+    {coords: [248, 134], type: 'point'},
+    {coords: [248, 156], type: 'point'},
+    {coords: [150, 110], type: 'point'},
+    {coords: [150, 134], type: 'point'},
+    {coords: [174, 134], type: 'bigPoint'},
+    {coords: [198, 134], type: 'point'},
+    {coords: [198, 158], type: 'point'},
+    {coords: [128, 230], type: 'point'},
+    {coords: [320, 230], type: 'point'},
+];
 export class Board {
     private blockSize: number = 20;
     private bgCanvas: HTMLCanvasElement;
     bgCtx: CanvasRenderingContext2D;
-    private points:HTMLCanvasElement
+    private points: HTMLCanvasElement;
     private canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
     pointsCtx: CanvasRenderingContext2D;
-
 
     constructor() {
         this.canvas = document.getElementById('board') as HTMLCanvasElement;
@@ -67,16 +228,34 @@ export class Board {
         });
     };
 
-    createPoints = async  () => {
+    createPoints = async () => {
         return new Promise((resolve) => {
-            this.pointsCtx.fillStyle = "rgba(255,255,224,1)";
-            for(let i = 0;i<points.length;i++){
-                this.pointsCtx.beginPath()
-                this.pointsCtx.arc(points[i][0],points[i][1],5,0,Math.PI*2)
-                this.pointsCtx.fill()
-                this.pointsCtx.stroke()
+            this.pointsCtx.fillStyle = 'rgba(255,255,224,1)';
+            for (let i = 0; i < points.length; i++) {
+                this.pointsCtx.beginPath();
+                if (points[i].type == 'bigPoint') {
+                    this.pointsCtx.arc(
+                        points[i].coords[0],
+                        points[i].coords[1],
+                        8,
+                        0,
+                        Math.PI * 2,
+                    );
+                    this.pointsCtx.fill();
+                    this.pointsCtx.stroke();
+                } else {
+                    this.pointsCtx.arc(
+                        points[i].coords[0],
+                        points[i].coords[1],
+                        5,
+                        0,
+                        Math.PI * 2,
+                    );
+                    this.pointsCtx.fill();
+                    this.pointsCtx.stroke();
+                }
             }
-            resolve("done")
+            resolve('done');
         });
     };
 }
